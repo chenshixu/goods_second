@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script>
+        //入口函数,页面渲染后加载
+        // window.onload=function () {
+        //     // var h1 = document.getElementById("h1");
+        //     // console.log(h1.innerHTML);
+        //
+        //
+        //     console.log($("#h1").html())
+        //
+        // }
+        //Jquery入口函数
+        $(document).ready(function () {
+
+            console.log($("#h1").html())//取值
+            //alert(123)
+            $("#h1").html("王之");//赋值
+        })
+
+        function getResult() {
+            var empno=$("#empno").val();
+            console.log(empno);
+            $("#result").html(empno+"<br/>");
+            var ename=$("#ename").val();
+            $("#result").append(ename+"<br>");
+            
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1 id="h1">Jquery语法</h1>
+    <form >
+        编号:<input type="text" name="empno" value=""><br/>
+        姓名:<input type="text" id="ename" name="ename" maxlength="5" size="20" ><br>
+        性别:<input type="radio" name="sex" value="男" checked="checked">男
+        <input type="radio" name="sex" value="女">女<br/>
+        学历:
+        <select name="select">
+            <option value="本科">本科</option>
+            <option value="专科" selected="selected"></option>
+        </select>
+        选修:<br/>
+        <input type="checkbox" name="course" value="JS" checked="checked">js
+        <input type="checkbox" name="course" value="CSS">CSS
+        <input type="checkbox" name="course" value="DIV">DIV
+        <input type="checkbox" name="course" value="sprint">spring<br/>
+        <br/>
+        自我评价<br/>
+        <textarea rows="4" cols="30" name="my">感觉不错</textarea><br/>
+        <br/>
+        <input type="button" onclick="getResult()" value="获取数据"><br/>
+    </form>
+    <div id="result">
+        <h3>显示结果</h3>
+
+    </div>
+</body>
+</html>

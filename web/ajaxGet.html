@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax框架练习</title>
+    <script>
+        function reg() {
+            var ename= document.getElementById("ename").value;
+            var msg=document.getElementById("msg");//获得标签对象
+            //使用ajax发送请求的步骤后，接受请求用servlet
+            //1.创建ajax对象
+            var ajax = new XMLHttpRequest();
+            //打印状态码
+            console.log("ajax状态码"+ajax.readyState);
+            //2.设置请求类型 get/post     url
+            ajax.open("get","ajax?ename="+ename);
+            console.log("ajax状态码"+ajax.readyState);
+            //3.发送请求send()
+            ajax.send();
+            ajax.onreadystatechange=function () {
+                console.log("发送后ajax状态码"+ajax.readyState);
+            }
+            //4.处理响应的文本结果
+            ajax.onload=function () {
+                console.log(ajax.responseText);
+                //打印状态码
+                //console.log("http状态码"+ajax.status);//打印结果为200
+                //console.log("ajax状态码"+ajax.readyState);//打印结果为4，表明接收场景完成
+                if(ajax.readyState==4&&ajax.status==200) {
+                    var result = ajax.responseText;
+                    if ("true" == result) {
+                        //可注册
+                        msg.innerText = "已注册";
+                    } else {
+                        msg.innerText = "可注册";
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<h1>用户注册-ajaxGet</h1>
+用户名:<input type="text" id="ename" onblur="reg()"><span id="msg"></span>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //window.alert("我来了")
+        window.console.log("控制台看我");
+
+        var ename="李丹";
+        var age=34;
+        console.log(ename);
+        console.log(age);
+        //网页-文档
+        document.writeln(ename+"<br/>");
+        document.writeln(age);
+
+        var arr=[1,2,3];
+        //循环 for(下标 in 集合)
+        for(var i in arr){
+            console.log(i);
+            console.log(arr[i]);
+        }
+
+        function add(x,y) {
+            return x+y;
+        }
+
+        //var add=add;
+        console.log(add(2,4));
+
+        //JS入口函数：让页面内容先渲染,再JS入口函数
+        window.onload=function () {
+            var h1=document.getElementById("h1");
+            var ename=document.getElementById("ename");
+            console.log(h1);
+            console.log(ename);
+            console.log(ename.getAttribute("value"));
+            //ename.setAttribute("value","狗哥");
+            ename.value="狗哥";
+        }
+
+
+    </script>
+</head>
+<body>
+<h1 id="h1">js语法</h1>
+<input type="text" id="ename" value="老王">
+
+</body>
+</html>
